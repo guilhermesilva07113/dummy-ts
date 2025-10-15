@@ -1,0 +1,72 @@
+[tool.ruff]
+line-length = 130
+select = ["F841"]
+
+lint.ignore = [
+    "E501", # Ignore long lines
+    "E302", # Ignore blank lines issue
+    "E701", # Ignore single-line if statements
+]
+extend-include = ["*.ipynb"]
+
+[tool.ruff.format]
+quote-style = "double"
+docstring-code-format = true
+
+[tool.ruff.lint.pydocstyle] # It enforces that all functions have docstrings
+convention = "google"
+
+[tool.ruff.lint.isort] #https://docs.astral.sh/ruff/settings/#lintisort
+no-sections = true # https://docs.astral.sh/ruff/settings/#lint_isort_no-sections
+# Use a single line between direct and from import.
+lines-between-types = 0
+
+[tool.pyright]
+typeCheckingMode = "standard"
+include = ["scripts", "config"]
+exclude = ["notebooks",
+           "data",
+           "scripts/core_forecast/utils/metrics_porto.py",
+           "scripts/external_variables/scripts/",
+           #    General
+           "**/.vscode/**",
+           "**/.vscode-server/**",
+           "**/.devcontainer/**",
+           "**/.git/**",
+           "**/.github/**",
+           "**/public/**",
+           "**/.pytest_cache",
+           "**/.ruff_cache",
+           "**/.mypy_cache",
+           "**/__pycache__",
+           "**/.venv",
+           "**/.sonar/**",
+           "sonar-project.properties"
+]
+extraPaths = ["./scripts"]
+
+[tool.pyright.diagnosticSeverityOverrides]
+reportUnusedVariable = "warning"
+reportDeprecated = "warning"
+reportAssertAlwaysTrue = "warning"
+
+# I am going to write for pylance about this issue
+
+# VS Code behavior:
+# It aggressively opens/indexes files because Pylance is integrated into the editor.
+# pyproject.toml (Pyright config) is only advisory. VS Code settings (settings.json or .code-workspace) override it.
+# So even if include = ["scripts"] in pyproject.toml, if VS Code has indexing = true, Pylance will still crawl everything in the workspace when you open a notebook. That’s why you see 14,501 files.
+
+# Neovim behavior:
+# There’s no integrated language server UI by default, so it only loads/analyzes the files you open, like the terminal.
+# That keeps indexing light, but you lose VS Code-style Jupyter notebook integration (cell execution, inline outputs, plots).
+
+# Jupyter notebooks for data scientists:
+# Right, Neovim can open .ipynb as JSON or through plugins (e.g., vim-jupyter or jupyter-vim), but it’s not nearly as smooth as VS Code.
+# Inline cell execution, variable explorer, and plots are awkward. VS Code’s notebook experience is far superior.
+
+# Indexing behavior summary:
+# include in Pyright only limits what Pyright thinks about for type checking, not what VS Code decides to crawl for language intelligence.
+# To fully stop VS Code/Pylance from indexing folders, you must set python.analysis.indexing: false in VS Code settings (workspace or user). pyproject.toml alone won’t do it if VS Code has a different setting.
+
+# So in short: VS Code > pyproject.toml > file-opened; Neovim = file-by-file (minimal), but notebook support is limited.

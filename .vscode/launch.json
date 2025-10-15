@@ -1,0 +1,34 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "cwd": "${fileDirname}",
+            "purpose": [
+                "debug-in-terminal"
+            ],
+            "justMyCode": false,
+            "pythonArgs": ["-Xfrozen_modules=off"],
+            "env": {
+                "PATH": "/mnt/data/gui/gpu_time_series/bin:${env:PATH}",
+                "CONDA_DEFAULT_ENV": "/mnt/data/gui/gpu_time_series",
+            },
+            "args": [
+                // "-path_yml", "../data/01_raw/config_327_local.yml",
+                // "-path_yml", "../data/01_raw/config_787_cnh_intermitente.yml",
+                // "-path_yml",
+                // "../data/01_raw/config_787_cnh_intermitente_debug.yml",
+                "-path_yml ","../data/01_raw/fixed/config_221_anp_advanced.yml",
+                // "-path_yml", "../data/01_raw/config_internal_variables.yml"
+                // "-path_yml", "../data/01_raw/config_327_local.yml"
+                //                 // "-path_yml", "../data/01_raw/config_405.yml"  // Zeradas
+                // "-path_yml", "../data/01_raw/fixed/local/config_317_anp_fast.yml"
+                // "-path_yml", "../data/01_raw/fixed/local/config_4KST_MDLZ_HoldingSKU_W.yml"
+            ],
+        }
+    ]
+}

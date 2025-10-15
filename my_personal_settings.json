@@ -1,0 +1,300 @@
+{
+    "security.workspace.trust.untrustedFiles": "open",
+    // Explorer
+    "explorer.confirmPasteNative": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    // ... Settings specific to R
+    "[r]": {
+        // "editor.defaultFormatter": "REditorSupport.r",
+        // "editor.defaultFormatter": "Posit.air-vscode",
+        // https: //www.datanovia.com/books/r-in-vscode/introduction-to-r-programming-in-vscode.html
+        "editor.wordSeparators": "`~!@#%$^&*()-=+[{]}\\|;:'\",<>/?",
+        "editor.codeActionsOnSave": {
+            "source.fixAll.lintr": "always"
+        },
+        "r.lintr.enabled": true,
+        "r.term.option": "radian",
+        "rewrap.doubleSentenceSpacing": true,
+        "r.alwaysUseActiveTerminal": true,
+        "r.sessionWatcher": true,
+        "r.source.focus": "editor",
+        "r.bracketedPaste": true,
+        "r.rterm.linux": "/home/guilherme/miniconda3/envs/r-datasci-env/bin/Radian",
+        // "r.rterm.linux": "conda run -n r-datasci-env && radian",
+        "r.rpath.linux": "/home/guilherme/miniconda3/envs/r-datasci-env/bin/R",
+        "r.rterm.option": [],
+        "r.lsp.debug": true,
+        "r.lsp.diagnostics": true,
+        "r.plot.useHttpgd": true
+    },
+    "[rmd]": {
+        "editor.defaultFormatter": "REditorSupport.r",
+        "editor.formatOnSave": true
+    },
+    // (Optional) If you want to preview R Markdown (.Rmd) in-editor:
+    "files.associations": {
+        "*.Rmd": "rmd",
+        "*.rmd": "rmd",
+        "renv.lock": "json"
+    },
+    "quarto.path": "/usr/local/bin/quarto",
+    // Python
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+    },
+    "python.languageServer": "Pylance",
+    "python.analysis.languageServerMode": "full",
+    "python.analysis.typeCheckingMode": "standard",
+    "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.completeFunctionParens": true,
+    "python.analysis.inlayHints.variableTypes": false,
+    "python.analysis.inlayHints.functionReturnTypes": false,
+    "python.analysis.indexing": true, //it may make the code slow
+    "python.analysis.exclude": [ // this is pyright https://github.com/microsoft/pyright/blob/main/docs/configuration.md
+        "**/site-packages/**",
+        "**/__pycache__/**",
+        "**/.venv/**"
+    ],
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportUnusedVariable": "warning",
+        "reportUnusedImport": "warning",
+        "reportDeprecated": "warning",
+        "reportAssertAlwaysTrue": "warning",
+    },
+    "python.defaultInterpreterPath": "/bin/python3",
+    "python.analysis.logLevel": "Trace",
+    // Jupyter
+    "[jupyter]": {
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "jupyter.interactiveWindow.creationMode": "perFile",
+    "jupyter.askForKernelRestart": false,
+    "jupyter.logging.level": "error",
+    "notebook.lineNumbers": "on",
+    "notebook.diff.ignoreMetadata": true,
+    "notebook.diff.ignoreOutputs": true,
+    // Ruff
+    "ruff.lint.enable": true,
+    "ruff.organizeImports": true,
+    // GIT
+    "git.autorefresh": true,
+    "git.autofetch": false,
+    "git.autofetchPeriod": 300, // every 5 minutes
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "git.mergeEditor": true,
+    "git.openRepositoryInParentFolders": "always",
+    "git.ignoreLimitWarning": true,
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    // ✨ Inline blame for quick context (who touched that line?)
+    "gitlens.currentLine.enabled": false, // make code slow
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.codeLens.enabled": false, // optional — keeps editor clean
+    // 💬 Better blame display
+    "gitlens.defaultDateFormat": "YYYY-MM-DD HH:mm",
+    "gitlens.defaultDateStyle": "absolute",
+    "cSpell.configFile": "~/Documents/my-vscode-settings/cspell.config.json",
+    "interactiveWindow.executeWithShiftEnter": true,
+    // Terminal
+    "terminal.integrated.defaultProfile.linux": "bash", // Ou "zsh", "fish", conforme seu terminal padrão
+    "terminal.integrated.inheritEnv": true,
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "path": "/bin/bash"
+        }
+    },
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+    // WorkBench
+    "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "*.csv": "default",
+        "{git,gitlens}:/**/*.{md,csv,svg}": "default",
+        "*.xlsx": "cweijan.officeViewer",
+        "*.md": "default"
+    },
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.editorLargeFileConfirmation": 100,
+    "workbench.colorCustomizations": {},
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "One Dark Modern",
+    // Extension Project Manager
+    "projectManager.git.baseFolders": [
+        "/home/guilherme/Documents",
+        "/mnt/data/guilherme"
+    ],
+    "remote.extensionKind": {
+        "alefragnani.project-manager": [
+            "workspace"
+        ]
+    },
+    // RAINBOW INDENT
+    "indentRainbow.indicatorStyle": "light",
+    "indentRainbow.lightIndicatorStyleLineWidth": 1,
+    "indentRainbow.colors": [
+        "rgba(255,255,64,0.3)",
+        "rgba(127,255,127,0.3)",
+        "rgba(255,127,255,0.3)",
+        "rgba(79,236,236,0.3)"
+    ],
+    // Path Intellisense
+    "path-intellisense.autoSlashAfterDirectory": true,
+    "path-intellisense.autoTriggerNextSuggestion": true,
+    "path-intellisense.extensionOnImport": true,
+    "path-intellisense.showHiddenFiles": true,
+    "path-intellisense.absolutePathToWorkspace": false,
+    "typescript.suggest.paths": false,
+    "javascript.suggest.paths": false,
+    // ==========================
+    // Performance ----------
+    // ==========================
+    // Stops VS Code from monitoring them for changes (performance boost)
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/.sonar/**": true,
+        "**/.devcontainer/**": true,
+        "**/.github/**": true,
+        //make faster vscode
+        "**/public/**": true,
+        "**/.git/**": true,
+        "**/.vscode-server/**": true,
+        "**/node_modules/**": true,
+        "**/__pycache__/**": true,
+        "**/.pytest_cache/**": true,
+        "**/.ruff_cache/**": true,
+        "**/.mypy_cache/**": true,
+        "**/figures/**": true,
+        "**/logs/**": true,
+        "**/checkpoints/**": true,
+        "**/*.csv": true,
+        "**/*.parquet": true,
+        "**/data/02_intermediate/**": true,
+        "**/data/04_feature/**": true,
+        "**/data/05_model_input/**": true,
+        "**/data/06_models/**": true,
+        "**/data/07_model_output/**": true,
+        "**/data/08_reporting/**": true,
+        "**/data/09_production/**": true,
+        "**/data/09_save_experiments/**": true,
+        "**/data/10_model_output/**": true,
+        // "!**/data/01_raw/**": true,  // ← Add this!
+    },
+    // Exclude from search in ctrl+P
+    "search.exclude": {
+        "**/data/02_intermediate/**": true,
+        "**/data/04_feature/**": true,
+        "**/data/05_model_input/**": true,
+        "**/data/06_models/**": true,
+        "**/data/07_model_output/**": true,
+        "**/data/08_reporting/**": true,
+        "**/data/09_production/**": true,
+        "**/data/09_save_experiments/**": true,
+        "**/data/10_model_output/**": true,
+        // "!**/data/01_raw/**": true,  // ← Add this!
+        "**/figures/**": true,
+        "**/.git/**": true
+    },
+    // Performance
+    "telemetry.telemetryLevel": "off",
+    "remote.autoForwardPorts": false,
+    "remote.downloadExtensionsLocally": true,
+    "breadcrumbs.enabled": false, // this are the symbols below the final name that show the structure
+    // ==========================
+    // QUALITY OF LIFE ----------
+    // ==========================
+    "editor.codeLens": false, // for performance
+    "editor.semanticHighlighting.enabled": true,
+    "editor.semanticTokenColorCustomizations": {
+        "enabled": true
+    },
+    "editor.parameterHints.enabled": true, // It does not work
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 14,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false, // to make more performatic
+        "strings": false // to make more performatic
+    },
+    "editor.wordBasedSuggestions": "off", //turn it off for path-intellisense work
+    "editor.inlineSuggest.enabled": true,
+    "editor.tabCompletion": "on",
+    // "editor.suggestSelection": "first",
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggest.showSnippets": true,
+    "editor.suggest.showKeywords": true,
+    "editor.suggest.localityBonus": true,
+    "editor.suggest.showWords": true,
+    "editor.suggest.showFiles": true, // ← Path IntelliSense
+    "editor.suggest.showFolders": true, // ← Path IntelliSense
+    "editor.suggestSelection": "recentlyUsed",
+    "editor.quickSuggestionsDelay": 0,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "always",
+        "source.organizeImports": "always",
+        "source.unusedImports": "always"
+    },
+    "editor.acceptSuggestionOnEnter": "on",
+    // # this is for toml files
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "support.type.property-name.table",
+                "settings": {
+                    "foreground": "#4EC9B0",
+                },
+            },
+            {
+                "scope": "support.type.property-name.array",
+                "settings": {
+                    "foreground": "#569CD6",
+                }
+            },
+            {
+                "scope": "constant.other.time",
+                "settings": {
+                    "foreground": "#DCDCAA",
+                }
+            }
+        ]
+    },
+    // Make sure JSON validation is enabled
+    "json.validate.enable": true,
+    "json.schemas": [],
+    "[json]": {
+        "editor.suggest.insertMode": "replace"
+    },
+    // ==========================
+    // OPTIONAL NICE TO HAVES
+    // ==========================
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    // This controls what VS Code won’t show in the Explorer sidebar.
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.pytest_cache": true,
+        "**/.mypy_cache": true,
+        "**/.ruff_cache": true,
+        "**/.ipynb_checkpoints": true,
+        "**/.venv": true,
+        "**/venv": true,
+        "**/env": true,
+        "**/.vscode": false,
+        "**/figures": true,
+    },
+    "files.autoSave": "afterDelay",
+    // ==========================
+    // Miscellanious
+    // ==========================
+    "markdown.preview.openMarkdownLinks": "inEditor",
+    "debug.onTaskErrors": "showErrors",
+    "keyboard.dispatch": "keyCode",
+    "jupyter.disableJupyterAutoStart": true, //performance
+}
